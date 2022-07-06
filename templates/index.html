@@ -19,7 +19,8 @@ body {
   padding: 2px;
   font-size: 40px;
   text-align: center;
-  background: white;
+  background:#76c893;
+  border-radius: 8px;
 }
 
 .leftcolumn {   
@@ -28,7 +29,7 @@ body {
 }
 
 .card {
-   background-color: white;
+   background-color:#d8e2dc;
    padding: 20px;
    margin-top: 20px;
 }
@@ -44,6 +45,10 @@ body {
     width: 100%;
     padding: 0;
   }
+
+button {
+  text-decoration: none;
+}
 }
 </style>
 </head>
@@ -51,8 +56,13 @@ body {
 
 <div class="header">
   <h2>Robyn's Blog</h2>
+  {% if user.is_authenticated %}
+  <h3> Welcome {{user.username}}</h3>
+    <button type="button" class="button"><a href="{% url 'logout' %}"> Logout </a></button>
+  {% else %}
+    <button type="button" class="button"><a href="{% url 'login' %}"> Login </a></button>
+  {% endif %}
 </div>
-
 <div class="row">
   <div class="leftcolumn">
     {% for post in posts reversed %}

@@ -1,0 +1,19 @@
+<h1> Login Here </h1>
+
+{% for message in messages %}
+{{message}}
+{% endfor %}
+
+<form method="POST">
+    {% csrf_token %}
+<h2>Enter your username </h1>
+<input type="text" name = "username"><br>
+    <h2>Enter your password </h1>
+<input type="password" name="password"><br>
+        <h2>Enter your password again </h1>
+<input type="password" name="password2"><br>
+<input type="submit">
+            <h4><a href="{% url 'register' %}"> dont have an account login here </a></h4>
+            </form>
+
+
